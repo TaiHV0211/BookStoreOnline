@@ -129,7 +129,7 @@ namespace OnlineMarket.Areas.Admin.Controllers
                         }
                         if(donhang.TransactStatusId == 1002)
                         {
-                            donhang.Deleted = true;       
+                            donhang.Deleted = true;
                         }
                         if(donhang.TransactStatusId == 3)
                         {

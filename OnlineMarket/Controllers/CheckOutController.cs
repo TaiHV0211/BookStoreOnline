@@ -82,9 +82,9 @@ namespace OnlineMarket.Controllers
                 khachhang.Ward = muaHang.PhuongXa;
                 khachhang.Address = muaHang.Address;
 
-/*                model.TinhThanh = Convert.ToInt32(khachhang.LocationId);
+                model.TinhThanh = Convert.ToInt32(khachhang.LocationId);
                 model.QuanHuyen = Convert.ToInt32(khachhang.District);
-                model.PhuongXa = Convert.ToInt32(khachhang.Ward);*/
+                model.PhuongXa = Convert.ToInt32(khachhang.Ward);
 
                 _context.Update(khachhang);
                 _context.SaveChanges();
@@ -140,8 +140,6 @@ namespace OnlineMarket.Controllers
             {
                 ViewData["lsTinhThanh"] = new SelectList(_context.Locations.Where(x => x.Levels == 1).OrderBy(x => x.Type).ToList(), "LocationId", "Name");
                 ViewBag.GioHang = cart;
-                _notyfService.Success("Đặt hàng thành công");
-
                 return View(model);
             }
             ViewData["lsTinhThanh"] = new SelectList(_context.Locations.Where(x => x.Levels == 1).OrderBy(x => x.Type).ToList(), "LocationId", "Name");

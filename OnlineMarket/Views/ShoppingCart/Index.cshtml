@@ -7,7 +7,7 @@
 
     <style type="text/css">
         .bg-image {
-            background-image: url('@Url.Content("")');
+            background-image: url('@Url.Content("~/assets/images/breadcrumb/bg1.jpg")');
             background-size: cover;
             height: 600px;
         }
@@ -65,13 +65,13 @@
                                                         </a>
                                                     </td>
                                                     <td class="product-name"><a href="javascript:void(0)">@item.product.ProductName</a></td>
-                                                    <td class="product-price"><span class="amount">@item.product.Price.Value.ToString("#,##0") VNĐ</span></td>
+                                                    <td class="product-price"><span class="amount">@item.product.Price.Value.ToString("#,##0")$</span></td>
                                                     <td class="quantity">
                                                         <div class="cart-plus-minus">
                                                             <input data-mahh="@item.product.ProductId" data-dongia="@item.product.Price" class="cartItem cart-plus-minus-box" value="@item.quantity" min="1" type="number">
                                                         </div>
                                                     </td>
-                                                    <td class="product-subtotal"><span class="amount">@item.TotalMoney.ToString("#,##0") VNĐ</span></td>
+                                                    <td class="product-subtotal"><span class="amount">@item.TotalMoney.ToString("#,##0")$</span></td>
                                                 </tr>
                                             }
                                         }
@@ -85,7 +85,7 @@
                                     <div class="cart-page-total">
                                         <h2>Tổng đơn hàng</h2>
                                         <ul>
-                                            <li>Thành tiền: <span>@Model.Sum(x => x.TotalMoney).ToString("#,##0") VNĐ</span></li>
+                                            <li>Thành tiền: <span>@Model.Sum(x => x.TotalMoney).ToString("#,##0")$</span></li>
                                         </ul>
                                         <a href="/checkout.html" class="btn btn-secondary btn-primary-hover">Thanh toán</a>
                                     </div>

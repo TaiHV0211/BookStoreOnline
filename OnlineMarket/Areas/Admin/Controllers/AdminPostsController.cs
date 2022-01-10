@@ -4,10 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using AspNetCoreHero.ToastNotification.Abstractions;
-using ClosedXML.Excel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using OnlineMarket.Helper;
 using OnlineMarket.Models;
@@ -29,8 +27,6 @@ namespace OnlineMarket.Areas.Admin.Controllers
         // GET: Admin/AdminPosts
         public IActionResult Index(int? page)
         {
-
-            
             var collection = _context.Posts.AsNoTracking().ToList();
             foreach(var item in collection)
             {
@@ -50,61 +46,7 @@ namespace OnlineMarket.Areas.Admin.Controllers
             ViewBag.CurrentPage = pageNumber;
             return View(models);
         }
-        public IActionResult ExportExcel()
-        {
-            using (var workbook = new XLWorkbook())
-            {
-                var ws = workbook.Worksheets.Add("Post");
-                ws.Range("A1:E1").Merge();
-                ws.Cell(1, 1).Value = "Report";
-                ws.Cell(1, 1).Style.Font.Bold = true;
-                ws.Cell(1, 1).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
-                ws.Cell(1, 1).Style.Font.FontSize = 30;
 
-
-                // header
-                ws.Cell(4,1).Value = "PostID";
-                ws.Cell(4,2).Value = "Title";
-                ws.Cell(4,3).Value = "Thumb";
-                ws.Cell(4,4).Value = "CreateDate";
-                ws.Cell(4,5).Value = "Alias";
-                ws.Range("A4:E4").Style.Fill.BackgroundColor = XLColor.Alizarin;
-
-                // Connection
-                System.Data.DataTable dt = new System.Data.DataTable();
-                SqlConnection con = new SqlConnection("Server=.;Database=BookStore;Integrated Security=true;");
-                SqlDataAdapter ad = new SqlDataAdapter("select * from Posts",con);
-                ad.Fill(dt);
-                int i = 5;
-                foreach (System.Data.DataRow row in dt.Rows) 
-                {
-                    ws.Cell(i, 1).Value = row[0].ToString();
-                    ws.Cell(i, 2).Value = row[1].ToString();
-                    ws.Cell(i, 3).Value = row[2].ToString();
-                    ws.Cell(i, 4).Value = row[3].ToString();
-                    ws.Cell(i, 5).Value = row[4].ToString();
-                    i++;
-                }
-                i--;
-                ws.Cells("A4:E" + 1).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
-                ws.Cells("A4:E" + 1).Style.Border.TopBorder = XLBorderStyleValues.Thin;
-                ws.Cells("A4:E" + 1).Style.Border.LeftBorder = XLBorderStyleValues.Thin;
-                ws.Cells("A4:E" + 1).Style.Border.RightBorder = XLBorderStyleValues.Thin;
-
-
-                using(var stream = new MemoryStream())
-                {
-                    workbook.SaveAs(stream);
-                    var content = stream.ToArray();
-                    return File(
-                        content,
-                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                        "Post.xlsx"
-                        );
-                }
-
-            }
-        }
         // GET: Admin/AdminPosts/Details/5
         public async Task<IActionResult> Details(int? id)
         {

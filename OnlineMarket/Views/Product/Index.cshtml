@@ -10,7 +10,7 @@
 
     <style type="text/css">
         .bg-image {
-            background-image: url('@Url.Content("~/img_product/img/bg1.jpg")');
+            background-image: url('@Url.Content("~/assets/images/breadcrumb/bg.jpg")');
             background-size: cover;
             height: 600px;
         }
@@ -23,7 +23,7 @@
             <div class="row h-100">
                 <div class="col-lg-12">
                     <div class="breadcrumb-item">
-                        <h1 class="breadcrumb-heading text-white">Bookstore</h1>
+                        <h1 class="breadcrumb-heading text-white">KTNT SHOP</h1>
                         <ul>
                             <li>
                                 <a class="text-white" href="/">Trang chủ <i class="text-white pe-7s-angle-right"></i></a>
@@ -50,6 +50,47 @@
                                     <i class="pe-7s-search"></i>
                                 </button>
                             </form>
+                        </div>
+                        <div class="widgets-area mb-9">
+                            <h2 class="widgets-title mb-5">Refine By</h2>
+                            <div class="widgets-item">
+                                <ul class="widgets-checkbox">
+                                    <li>
+                                        <input class="input-checkbox" type="checkbox" id="refine-item">
+                                        <label class="label-checkbox mb-0" for="refine-item">
+                                            On Sale
+                                            <span>4</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input class="input-checkbox" type="checkbox" id="refine-item-2" checked>
+                                        <label class="label-checkbox mb-0" for="refine-item-2">
+                                            New
+                                            <span>4</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input class="input-checkbox" type="checkbox" id="refine-item-3">
+                                        <label class="label-checkbox mb-0" for="refine-item-3">
+                                            In Stock
+                                            <span>4</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="widgets-area widgets-filter mb-9">
+                            <h2 class="widgets-title mb-5">Price Filter</h2>
+                            <div class="price-filter">
+                                <div id="slider-range"></div>
+                                <div class="price-slider-amount">
+                                    <button class="btn btn-primary btn-secondary-hover">Filter</button>
+                                    <div class="label-input position-relative">
+                                        <label>price : </label>
+                                        <input type="text" id="amount" name="price" placeholder="Add Your Price" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
 

@@ -1,46 +1,26 @@
-﻿
-<header class="main-header_area position-relative">
-    <div class="header-top border-bottom d-none d-md-block">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-6">
-                    <div class="header-top-left">
-                        <ul class="dropdown-wrap text-matterhorn">
-                            <li class="dropdown">
-                                <button class="btn btn-link dropdown-toggle ht-btn" type="button" id="languageButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                    English
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="languageButton">
-                                    <li><a class="dropdown-item" href="#">French</a></li>
-                                    <li><a class="dropdown-item" href="#">Italian</a></li>
-                                    <li><a class="dropdown-item" href="#">Spanish</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <button class="btn btn-link dropdown-toggle ht-btn" type="button" id="currencyButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                    USD
-                                </button>
-                            </li>
-                            <li>
-                                Call Us
-                                <a href="tel://0369712124">0369712124</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+﻿<header class="main-header_area position-relative">
     <div class="header-middle py-5">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="header-middle-wrap">
                         <a href="/" class="header-logo">
-                            <img src="~/img_product/img/logo.png" alt="Market at Home" style="width:100px;">
+                            <img src="~/assets/images/logo/dark.png" alt="Market at Home" style="width:100px;height:50px">
                         </a>
-                        <div class="header-search-area d-none d-lg-block">
-                        </div>
+                        @*<div class="header-search-area d-none d-lg-block">
+                            <form action="#" class="header-searchbox">
+                                <select class="nice-select select-search-category wide">
+                                    <option value="all">All Category</option>
+                                    <option value="product-item">Product Item</option>
+                                    <option value="product-item-2">Product Item 02</option>
+                                    <option value="product-item-3">Product Item 03</option>
+                                    <option value="product-item-4">Product Item 04</option>
+                                    <option value="product-item-5">Product Item 05</option>
+                                </select>
+                                <input class="input-field" type="text" placeholder="Search Products">
+                                <button class="btn btn-outline-whisper btn-primary-hover" type="submit"><i class="pe-7s-search"></i></button>
+                            </form>
+                        </div>*@
                         <div class="header-right">
                             <ul>
                                 <li class="dropdown d-none d-md-block">
@@ -50,22 +30,29 @@
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingButton">
                                         @if (User.Identity.IsAuthenticated)
                                         {
-                                            <li><a class="dropdown-item" href="/tai-khoan-cua-toi.html">My account</a></li>
+                                            <li><a class="dropdown-item" href="/tai-khoan-cua-toi.html">Tài khoản của tôi</a></li>
                                         }
                                         else
                                         {
-                                            <li><a class="dropdown-item" href="/dang-ky.html">Register</a></li>
-                                            <li><a class="dropdown-item" href="/dang-nhap.html">Login</a></li>
+                                            <li><a class="dropdown-item" href="/dang-ky.html"> Đăng ký tài khoản</a></li>
+                                            <li><a class="dropdown-item" href="/dang-nhap.html"> Đăng nhập</a></li>
                                         }
                                     </ul>
                                 </li>
-
+                                <li class="d-none d-md-block">
+                                    <a href="wishlist.html">
+                                        <i class="pe-7s-like"></i>
+                                    </a>
+                                </li>
                                 <li class="d-block d-lg-none">
                                     <a href="#searchBar" class="search-btn toolbar-btn">
                                         <i class="pe-7s-search"></i>
                                     </a>
                                 </li>
-                                @await Component.InvokeAsync("NumberCart");
+                                <li id="numberCart" class="minicart-wrap me-3 me-lg-0">
+                                    @await Component.InvokeAsync("NumberCart")
+                                </li>
+
                                 <li class="mobile-menu_wrap d-block d-lg-none">
                                     <a href="#mobileMenu" class="mobile-menu_btn toolbar-btn pl-0">
                                         <i class="pe-7s-menu"></i>
@@ -78,7 +65,7 @@
             </div>
         </div>
     </div>
-    <div class="main-header header-sticky" data-bg-color="#bac34e">
+    <div class="main-header header-sticky" data-bg-color="white" >
         <div class="container">
             <div class="main-header_nav position-relative">
                 <div class="row align-items-center">
@@ -87,19 +74,19 @@
                             <nav class="main-nav">
                                 <ul>
                                     <li class="drop-holder">
-                                        <a href="/">Home</a>
+                                        <a href="/" style="color:black">Home</a>
                                     </li>
                                     <li>
-                                        <a href="/about.html" >Về chúng tôi</a>
+                                        <a href="/about.html" style="color:black">Về chúng tôi</a>
                                     </li>
                                     <li>
-                                        <a href="/shop.html">Shop</a>
+                                        <a href="/shop.html" style="color:black">Shop</a>
                                     </li>
                                     <li>
-                                        <a href="/blogs.html" >Blog</a>
+                                        <a href="/blogs.html" style="color:black">Blog</a>
                                     </li>
                                     <li>
-                                        <a href="/contact.html" >Liên hệ</a>
+                                        <a href="/contact.html" style="color:black">Liên hệ</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -146,12 +133,12 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingButtonTwo">
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                    <li><a class="dropdown-item" href="/tai-khoan-cua-toi.html">My account</a></li>
+                                    <li><a class="dropdown-item" href="/tai-khoan-cua-toi.html">Tài khoản của tôi</a></li>
                                 }
                                 else
                                 {
-                                    <li><a class="dropdown-item" href="/dang-ky.html">Register</a></li>
-                                    <li><a class="dropdown-item" href="/dang-nhap.html">Login</a></li>
+                                    <li><a class="dropdown-item" href="/dang-ky.html"> Đăng ký tài khoản</a></li>
+                                    <li><a class="dropdown-item" href="/dang-nhap.html"> Đăng nhập</a></li>
                                 }
                             </ul>
                         </li>
@@ -166,24 +153,13 @@
                     <nav class="offcanvas-navigation">
                         <ul class="mobile-menu">
                             <li class="menu-item-has-children">
-                                <a href="#">
+                                <a href="/">
                                     <span class="mm-text">
-                                        Home
+                                        Trang chủ
                                         <i class="pe-7s-angle-down"></i>
                                     </span>
                                 </a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="index.html">
-                                            <span class="mm-text">Home One</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="index-2.html">
-                                            <span class="mm-text">Home Two</span>
-                                        </a>
-                                    </li>
-                                </ul>
+
                             </li>
                             <li>
                                 <a href="about.html">
@@ -286,24 +262,16 @@
                                             </span>
                                         </a>
                                         <ul class="sub-menu">
-
                                             <li>
-                                                <a href="/tai-khoan-cua-toi.html">
+                                                <a href="my-account.html">
                                                     <span class="mm-text">My Account</span>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="/dang-ky.html">
-                                                    <span class="mm-text">Register</span>
+                                                <a href="login-register.html">
+                                                    <span class="mm-text">Login | Register</span>
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="/dang-nhap.html">
-                                                    <span class="mm-text">Login</span>
-                                                </a>
-                                            </li>
-
-
                                             <li>
                                                 <a href="cart.html">
                                                     <span class="mm-text">Shopping Cart</span>
@@ -446,8 +414,7 @@
         </div>
     </div>
     <div class="offcanvas-minicart_wrapper" id="miniCart">
-        @await Component.InvokeAsync("HeaderCart");
-
+      @await Component.InvokeAsync("HeaderCart")
     </div>
     <div class="global-overlay"></div>
 </header>

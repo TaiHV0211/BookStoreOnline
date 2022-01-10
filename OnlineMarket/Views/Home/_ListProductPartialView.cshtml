@@ -12,7 +12,7 @@
                             @if (item.BestSeller == true)
                             {
                                 <div style="margin-bottom: 30px; z-index: 1; position: absolute; background-color: red; border-style: double; color: white; border-radius: 20px">
-
+                                    <p style="background-color:;margin:auto;padding:0px 10px;">Best Seller</p>
                                 </div>
                             }
                             <img class="img-full" src="~/images/products/@item.Thumb" style="width: 100%; height:200px" alt="@item.Title" />
@@ -21,7 +21,7 @@
                         <div class="product-add-action">
                             <ul>
                                 <li>
-                                    <a href="@url">
+                                    <a href="">
                                         <i class="pe-7s-cart"></i>
                                     </a>
                                 </li>
@@ -31,7 +31,7 @@
                     <div class="product-content">
                         <a class="product-name" href="@url">@item.ProductName</a>
                         <div class="price-box pb-1">
-                            <span class="new-price">@item.Price.Value.ToString("#,##0") VNĐ</span>
+                            <span class="new-price">@item.Price.Value.ToString("#,##0")$</span>
                         </div>
                     </div>
                 </div>

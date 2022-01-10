@@ -6,7 +6,7 @@
 <br />
 <p>Ngày đặt hàng: @Model.DonHang.OrderDate</p>
 <p>Trạng thái đơn hàng: @Model.DonHang.TransactStatus.Status</p>
-<p>Thành tiền: @Model.DonHang.TotalMoney.ToString("#,##0") VNĐ</p>
+<p>Thành tiền: @Model.DonHang.TotalMoney.ToString("#,##0") $</p>
 <p>Ngày ship hàng: @Model.DonHang.ShipDate</p>
 <br />
 
@@ -31,7 +31,7 @@
                             <th>@item.product.ProductName</th>
                             <th>@item.Quantity</th>
                             <th>@item.Price</th>
-                            <th>@item.TotalMoney.Value.ToString("#,##0") VNĐ</th> 
+                            <th>@item.TotalMoney.Value.ToString("#,##0") $</th> 
                         </tr>
                     }
                 }

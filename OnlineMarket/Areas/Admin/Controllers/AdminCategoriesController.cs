@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using AspNetCoreHero.ToastNotification.Abstractions;
-using Aspose.Pdf;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using OnlineMarket.Areas.Admin.Models;
 using OnlineMarket.Helper;
 using OnlineMarket.Models;
 using PagedList.Core;
-using ZedGraph;
 
 namespace OnlineMarket.Areas.Admin.Controllers
 {
@@ -27,7 +23,6 @@ namespace OnlineMarket.Areas.Admin.Controllers
             _context = context;
             _notyfService = notifyfService;
         }
-        ConnectionDB db = new ConnectionDB();
 
         // GET: Admin/AdminCategories
         public IActionResult Index(int? page)
@@ -40,32 +35,7 @@ namespace OnlineMarket.Areas.Admin.Controllers
             ViewBag.CurrentPage = pageNumber;
             return View(models);
         }
-        public IActionResult ExportPDF()
-        {
-            var document = new Document
-            {
-                PageInfo = new PageInfo { Margin = new MarginInfo(28, 28, 28, 40) }
 
-        };
-        var pdfpage = document.Pages.Add();
-            Table table = new Table
-            {
-                ColumnWidths = "25% 25% 25% 25% 25%",
-                DefaultCellPadding = new MarginInfo(5, 10, 10, 5),
-                Border = new BorderInfo(BorderSide.All, .5f, Color.Black),
-                DefaultCellBorder = new BorderInfo(BorderSide.All, .2f, Color.Black)
-            };
-            DataTable dt = db.GetRecord();
-            table.ImportDataTable(dt,true,0,0);
-            document.Pages[1].Paragraphs.Add(table);
-            using(var streamOut = new MemoryStream())
-            {
-                document.Save(streamOut);
-                return new FileContentResult(streamOut.ToArray(), "application/bdf") { 
-                    FileDownloadName    ="Resutlt.pdf"
-                };
-            }
-        }
         // GET: Admin/AdminCategories/Details/5
         public async Task<IActionResult> Details(int? id)
         {

@@ -28,8 +28,7 @@ namespace OnlineMarket.Areas.Admin.Controllers
         // GET: Admin/AdminProducts
         public IActionResult Index(int page = 1,int CatID = 0)
         {
-
-                        var pageNumber = page;
+            var pageNumber = page;
             var pageSize = 10;
 
             List<Product> lsProducts = new List<Product>();
@@ -49,33 +48,6 @@ namespace OnlineMarket.Areas.Admin.Controllers
             ViewBag.CurrentPage = pageNumber;
 
             ViewData["DanhMuc"] = new SelectList(_context.Categories, "CatId", "CatName",CatID);
-
-            return View(models);
-        }
-
-
-        public IActionResult Search(int page = 1, int CatID = 0)
-        {
-            var pageNumber = page;
-            var pageSize = 10;
-
-            List<Product> lsProducts = new List<Product>();
-            if (CatID != 0)
-            {
-                lsProducts = _context.Products.AsNoTracking().Where(x => x.CatId == CatID).Include(x => x.Cat).OrderByDescending(x => x.ProductId).ToList();
-            }
-            else
-            {
-
-                lsProducts = _context.Products.AsNoTracking().Include(x => x.Cat).OrderByDescending(x => x.CatId).ToList();
-            }
-
-
-            PagedList<Product> models = new PagedList<Product>(lsProducts.AsQueryable(), pageNumber, pageSize);
-            ViewBag.CurrentCateID = CatID;
-            ViewBag.CurrentPage = pageNumber;
-
-            ViewData["DanhMuc"] = new SelectList(_context.Categories, "CatId", "CatName", CatID);
 
             return View(models);
         }

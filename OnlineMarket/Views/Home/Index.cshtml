@@ -1,7 +1,7 @@
 ﻿@model OnlineMarket.ModelViews.HomeViewVM
 @using PagedList.Core.Mvc
 @{
-    ViewData["Title"] = "BookStore";
+    ViewData["Title"] = "Bách hóa tại nhà";
     Layout = "~/Views/Shared/_Layout.cshtml";
     List<OnlineMarket.Models.Product> allProduct = ViewBag.AllProducts;
 }
@@ -10,12 +10,12 @@
 
     <style type="text/css">
         .bg-image {
-            background-image: url('@Url.Content("~/img_product/img/bg1.jpg")');
+            background-image: url('@Url.Content("~/assets/images/breadcrumb/bg.jpg")');
             background-size: cover;
 
         }
                 .bg2-image {
-            background-image: url('@Url.Content("~/img_product/img/bg2.jpg")');
+            background-image: url('@Url.Content("~/assets/images/breadcrumb/bg1.jpg")');
             background-size: cover;
 
         }
@@ -33,8 +33,8 @@
                     <div class="container">
                         <div class="parallax-with-content">
                             <div class="slide-content">
-                                <span class="sub-title mb-3 text-white-50" style="font-weight: bold">BookStore</span>
-                                <h2 class="title mb-9 text-white" style="font-weight: bold">Đọc sách đọc cả tương lai</h2>
+                                <span class="sub-title mb-3 text-white-50" style="font-weight: bold">KTNT SHOP</span>
+                                <h2 class="title mb-9 text-white" style="font-weight: bold">Đồng hành cùng ước mơ của bạn</h2>
                                 @*<div class="button-wrap">
                                     <a class="btn btn-custom-size lg-size btn-primary btn-white-hover rounded-0" href="/shop.html">Shop Now</a>
                                 </div>*@
@@ -50,6 +50,11 @@
                     <div class="container">
                         <div class="parallax-with-content">
                             <div class="slide-content">
+                                @*<span class="sub-title mb-3 text-white-50" style="font-weight: bold">Ultrboost DNA 21</span>
+                                <h2 class="title mb-9  text-white" style="font-weight: bold">Đồng hành cùng sức khỏe của bạn</h2>
+                                <div class="button-wrap">
+                                    <a class="btn btn-custom-size lg-size btn-primary btn-white-hover rounded-0" href="shop.html">Shop Now</a>
+                                </div>*@
                             </div>
 
                         </div>
@@ -68,7 +73,45 @@
 </div>
 <!-- Slider Area End Here -->
 <!-- Begin Shipping Area -->
-\
+@*<div class="shipping-area section-space-top-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="shipping-item">
+                        <div class="shipping-img">
+                            <img src="~/assets/images/shipping/icon/plane.png" alt="Shipping Icon">
+                        </div>
+                        <div class="shipping-content">
+                            <h5 class="title">Free Shipping</h5>
+                            <p class="short-desc mb-0">Free Home Delivery Offer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 pt-6 pt-md-0">
+                    <div class="shipping-item">
+                        <div class="shipping-img">
+                            <img src="~/assets/images/shipping/icon/earphones.png" alt="Shipping Icon">
+                        </div>
+                        <div class="shipping-content">
+                            <h5 class="title">Online Support</h5>
+                            <p class="short-desc mb-0">24/7 Online Support Provide</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 pt-6 pt-lg-0">
+                    <div class="shipping-item">
+                        <div class="shipping-img">
+                            <img src="~/assets/images/shipping/icon/shield.png" alt="Shipping Icon">
+                        </div>
+                        <div class="shipping-content">
+                            <h5 class="title">Secure Payment</h5>
+                            <p class="short-desc mb-0">Fully Secure Payment System</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
 <!-- Shipping Area End Here -->
 <!-- Begin Banner Area -->
 
@@ -78,6 +121,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="nav product-tab-nav pb-10" id="myTab" role="tablist" style="margin:auto">
+
                     <li class="nav-item" role="presentation">
                         <a class="active" id="all-item-tab" data-bs-toggle="tab" href="#all-item" role="tab" >
                             Tất cả sản phẩm
